@@ -1,0 +1,18 @@
+<button
+  type="button"
+  title="Button"
+  [attr.type]="type"
+  [ngClass]="{
+    'app-button--submit': type === 'submit',
+    'app-button--reset': type === 'reset',
+    'app-button--button': type === 'button',
+    'app-button--cancel': type === 'cancel',
+    'app-button--delete': type === 'delete',
+    'app-button--deleteAll': type === 'deleteAll',
+    'app-button--add': type === 'add',
+  }"
+  [disabled]="disabled"
+  class="app-button">
+  <ng-content />
+</button>
+

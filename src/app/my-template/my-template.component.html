@@ -1,0 +1,7 @@
+<ng-template #conditionTrue>Condition is True</ng-template>
+<ng-template #conditionFalse>Condition is False</ng-template>
+
+<app-base-button (click)="toggleCondition()">Toggle Condition</app-base-button>
+<ng-container
+  *ngTemplateOutlet="condition ? conditionTrue : conditionFalse"
+></ng-container>
