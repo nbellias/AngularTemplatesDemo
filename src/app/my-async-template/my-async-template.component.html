@@ -1,0 +1,17 @@
+@if(isLoading()){
+<ng-container>
+  <ng-container *ngTemplateOutlet="loadingTemplate"></ng-container>
+</ng-container>
+} @else {
+<ng-container>
+  <ng-container *ngTemplateOutlet="contentLoaded"></ng-container>
+</ng-container>
+}
+
+<ng-template #loadingTemplate>
+  <p>Loading...</p>
+</ng-template>
+
+<ng-template #contentLoaded>
+  <p><img src="nibelsoft.jpg" alt="nibelsoft" width="100px"></p>
+</ng-template>

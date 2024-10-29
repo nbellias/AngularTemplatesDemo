@@ -1,0 +1,35 @@
+@defer (on timer(4000ms)) {
+<ng-container>
+  <ng-container *ngTemplateOutlet="myarray"></ng-container>
+</ng-container>
+} @loading {
+<ng-container>
+  <ng-container *ngTemplateOutlet="anotherLoadingTemplate"></ng-container>
+</ng-container>
+} @placeholder (minimum 2000ms) {
+<ng-container>
+  <ng-container *ngTemplateOutlet="placeholderContent"></ng-container>
+</ng-container>
+} @error {
+<p>Failed to load large component.</p>
+}
+
+<ng-template #placeholderContent>
+  <p>Placeholder Content</p>
+</ng-template>
+
+<ng-template #anotherLoadingTemplate>
+  <p>Loading...</p>
+</ng-template>
+
+<ng-template #myarray>
+  @if(isComing()){
+  <h3>Array</h3>
+  <ul>
+    @for(item of items(); track item){
+    <li>{{ item }}</li>
+    }
+  </ul>
+  <app-base-button (click)="addItem()">Add Item</app-base-button>
+  }
+</ng-template>
